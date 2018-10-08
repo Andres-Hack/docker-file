@@ -1,0 +1,29 @@
+bbdd:
+        image: mysql
+        expose:
+        - 3306
+
+app1:
+	image: jboss/wildfly
+	links:
+	- bbdd:redis
+	expose:
+	- 8080
+	volumes:
+	- ./webapps:/opt/jboss/wildfly/standalone/deployments/
+
+app2:
+	image: jboss/wildfly
+	links:
+	- bbdd:redis
+	expose:
+	- 8080
+	volumes:
+	- ./webapps:/opt/jboss/wildfly/standalone/deployments/
+web:	
+	build: ./
+	links:
+	- app1:app1
+	- app2:app2		
+	ports:
+ 	- 80:80
