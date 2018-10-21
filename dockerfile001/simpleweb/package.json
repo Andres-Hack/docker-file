@@ -1,0 +1,14 @@
+{
+  "name": "simpleweb",
+  "version": "1.0.0",
+  "description": "es un ejemplo de servidor",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "express" : "*"
+  },
+  "author": "andres.mamani",
+  "license": "MIT"
+}
